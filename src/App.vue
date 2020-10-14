@@ -1,8 +1,14 @@
-<template><fragment></fragment> </template>
+<template>
+  <fragment>
+    <TheHeader />
+  </fragment>
+</template>
 
 <script>
+import TheHeader from "./components/TheHeader";
 export default {
-  name: "App"
+  name: "App",
+  components: { TheHeader }
 };
 </script>
 

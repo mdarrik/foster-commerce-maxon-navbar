@@ -13,7 +13,7 @@
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
       focusable="false"
-      class="w-24 lg:w-30 max-h-full fill-current"
+      class="w-24 lg:w-32 max-h-full fill-current"
     >
       <title id="site-logo-8" aria-hidden="true">
         Maxon - A Nemetschek Company

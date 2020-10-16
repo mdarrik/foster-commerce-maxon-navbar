@@ -4,7 +4,6 @@
   -->
   <a :href="`/${lang}/`" aria-label="Maxon - A Nemetschek Company">
     <svg
-      data-v-45641dd8=""
       clip-rule="evenodd"
       fill-rule="evenodd"
       stroke-linejoin="round"

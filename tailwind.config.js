@@ -8,7 +8,12 @@ module.exports = {
   },
   purge: [],
   theme: {
-    extend: {}
+    extend: {
+      fontFamily: {
+        display: "Rajdhani,Helvetica,Arial,sans-serif",
+        sans: "Roboto,Helvetica,Arial,sans-serif"
+      }
+    }
   },
   variants: {},
   plugins: []

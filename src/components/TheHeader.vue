@@ -7,25 +7,12 @@
       class="bg-gray-900 text-white flex justify-between h-20 items-center px-10 font-display"
     >
       <TheHeaderLogo :lang="lang" class="w-1/3" />
-      <nav class="contents">
+      <nav class="contents uppercase">
         <span class="hidden" id="primary-nav-label">Primary Nav</span>
-        <ul
-          class="flex flex-1 self-center justify-evenly w-1/3"
-          aria-labelledby="primary-nav-label"
-        >
-          <li
-            v-for="category in primaryNavCategories"
-            :key="category"
-            class="relative"
-          >
-            <button
-              type="button"
-              class="font-bold tracking-wide text-base uppercase h-12"
-            >
-              <span class="mx-5">{{ category }}</span>
-            </button>
-          </li>
-        </ul>
+        <TheDesktopPrimaryNav
+          :categories="primaryNavCategories"
+          class="w-1/3"
+        />
         <ul class="flex flex-1 justify-end gap-8 w-1/3">
           <li>
             <button aria-label="Search">
@@ -101,13 +88,59 @@
 
 <script>
 import TheHeaderLogo from "./TheHeaderLogo";
+
+import TheDesktopPrimaryNav from "./TheDesktopPrimaryNav";
 export default {
   components: {
-    TheHeaderLogo
+    TheHeaderLogo,
+    TheDesktopPrimaryNav
   },
   data() {
     return {
-      primaryNavCategories: ["Products", "News", "Learn", "Try", "Buy"],
+      primaryNavCategories: [
+        {
+          name: "Products",
+          subcategories: [
+            { name: "Cinema 4D", url: "#" },
+            { name: "Cinebench", url: "#" },
+            { name: "Redshift", url: "#" },
+            { name: "C40 + Redshift", url: "#" },
+            { name: "Maxon One", url: "#" },
+            { name: "Cineware", url: "#" }
+          ]
+        },
+        {
+          name: "News",
+          subcategories: [
+            { name: "Newsroom", url: "#" },
+            { name: "Events", url: "#" }
+          ]
+        },
+        {
+          name: "Learn",
+          subcategories: [
+            {
+              name: "Cineversity",
+              url: "#",
+              isExternal: true
+            },
+            {
+              name: "Educational Licensing",
+              url: "#"
+            },
+            {
+              name: "Certification",
+              url: "#"
+            },
+            {
+              name: "Training Partners",
+              url: "#"
+            }
+          ]
+        },
+        { name: "Try", url: "#" },
+        { name: "Buy", url: "#" }
+      ],
       lang: "en"
     };
   }

@@ -2,10 +2,10 @@
   <fragment>
     <button
       type="button"
-      @click="$emit('button-click', category)"
       class="font-bold tracking-wide text-base uppercase h-12 flex items-center justify-center px-5"
       :aria-expanded="listOpen ? 'true' : 'false'"
       :aria-controls="`${category}-menu`"
+      @click="$emit('button-click')"
     >
       {{ category }}
       <svg

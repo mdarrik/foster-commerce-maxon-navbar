@@ -17,8 +17,7 @@
         :category="category.name"
         :subcategories="category.subcategories"
         :list-open="openListIndex === index"
-        @button-click="listButtonClicked(index)"
-        ref="dropdownRefs"
+        @button-click="dropdownButtonClicked(index)"
       />
       <a
         v-else
@@ -45,7 +44,7 @@ export default {
     };
   },
   methods: {
-    listButtonClicked(index) {
+    dropdownButtonClicked(index) {
       if (this.openListIndex === index) {
         this.openListIndex = null;
       } else {

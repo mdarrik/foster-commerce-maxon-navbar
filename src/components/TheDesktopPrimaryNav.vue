@@ -1,5 +1,6 @@
 <template>
   <ul
+    ref="listRef"
     class="flex flex-1 self-center justify-evenly"
     aria-labelledby="primary-nav-label"
     @focusout="focusOut"
@@ -12,6 +13,7 @@
     >
       <DropdownMenu
         v-if="category.subcategories"
+        ref="dropdownRefs"
         :category="category.name"
         :subcategories="category.subcategories"
         :list-open="openListIndex === index"

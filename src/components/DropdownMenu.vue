@@ -1,6 +1,7 @@
 <template>
   <fragment>
     <button
+      ref="buttonRef"
       type="button"
       class="font-bold tracking-wide text-base uppercase h-12 flex items-center justify-center px-5"
       :aria-expanded="listOpen ? 'true' : 'false'"
@@ -25,6 +26,7 @@
       :open="listOpen"
       :subcategories="subcategories"
       :id="`${category}-menu`"
+      @keyup.esc.native="focusButton"
     />
   </fragment>
 </template>
@@ -43,7 +45,12 @@ export default {
     },
     /**prop to determine whether the dropdown item should have a chevron when expanded */
     hasChevron: { type: Boolean, default: true }
+  },
+  methods: {
+    /**set focus on the button for this dropdown */
+    focusButton() {
+      this.$refs.buttonRef.focus();
+    }
   }
-  
 };
 </script>

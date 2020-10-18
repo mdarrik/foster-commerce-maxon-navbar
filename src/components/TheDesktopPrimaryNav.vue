@@ -53,15 +53,9 @@ export default {
     },
     focusOut(event) {
       const listRef = this.$refs.listRef;
-      //if listRef doesn't contain the relatedTarget node, close the list
-      console.log(event.relatedTarget);
-      if (!listRef.contains(event.relatedTarget)) {
+      if (this.openListIndex && !listRef.contains(event.relatedTarget)) {
         this.openListIndex = null;
       }
-    },
-    log(...args) {
-      console.log();
-      console.log(args);
     }
   }
 };

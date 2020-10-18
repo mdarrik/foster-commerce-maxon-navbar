@@ -14,7 +14,7 @@
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 14.739 7.662"
         aria-hidden="true"
-        class="w-2 h-2 fill-current absolute mx-auto mt-10"
+        class="w-2 h-2 fill-current absolute mx-auto mt-10 chevron transform transition ease-in-out duration-200 "
       >
         <path
           aria-hidden="true"
@@ -54,3 +54,15 @@ export default {
   }
 };
 </script>
+<style scoped>
+/*if list collapsed, hide chevron and move it up
+* opacity used so that chevron can be animated
+*/
+[aria-expanded="false"] .chevron {
+  @apply opacity-0 -translate-y-2;
+}
+/*if list expanded, make chevron solid and translate it to default position */
+[aria-expanded="true"] .chevron {
+  @apply opacity-100 translate-y-0;
+}
+</style>

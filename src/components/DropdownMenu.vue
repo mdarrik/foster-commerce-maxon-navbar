@@ -32,6 +32,10 @@
 </template>
 <script>
 import DropdownSubmenu from "./DropdownSubmenu";
+/**
+ * a dropdown/disclosure menu. Doesn't handle opening/closing the menu itself, instead emits a button-click event
+ * and receives a listOpen prop. This allows a parent to orchestrate multiple dropdowns at a time.
+ */
 export default {
   components: {
     DropdownSubmenu

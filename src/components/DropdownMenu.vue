@@ -5,6 +5,7 @@
       @click="$emit('button-click', category)"
       class="font-bold tracking-wide text-base uppercase h-12 flex items-center justify-center px-5"
       :aria-expanded="listOpen ? 'true' : 'false'"
+      :aria-controls="`${category}-menu`"
     >
       {{ category }}
       <svg
@@ -19,7 +20,11 @@
         ></path>
       </svg>
     </button>
-    <DropdownSubmenu :open="listOpen" :subcategories="subcategories" />
+    <DropdownSubmenu
+      :open="listOpen"
+      :subcategories="subcategories"
+      :id="`${category}-menu`"
+    />
   </fragment>
 </template>
 <script>

@@ -4,7 +4,7 @@
     class="flex flex-1 self-center justify-evenly"
     aria-labelledby="primary-nav-label"
     @focusout="focusOut"
-    ref="listRef"
+    @keydown.esc="openListIndex = null"
   >
     <li
       v-for="(category, index) in categories"

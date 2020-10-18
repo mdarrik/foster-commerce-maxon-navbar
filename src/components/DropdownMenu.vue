@@ -9,6 +9,7 @@
     >
       {{ category }}
       <svg
+        v-if="hasChevron"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 14.739 7.662"
         aria-hidden="true"
@@ -39,7 +40,10 @@ export default {
     listOpen: {
       type: Boolean,
       default: false
-    }
+    },
+    /**prop to determine whether the dropdown item should have a chevron when expanded */
+    hasChevron: { type: Boolean, default: true }
   }
+  
 };
 </script>

@@ -23,7 +23,6 @@
         v-else
         :href="category.url"
         class="font-bold tracking-wide text-base uppercase h-12 flex items-center"
-        ref="buttonRef"
       >
         <span class="mx-5">{{ category.name }}</span>
       </a>

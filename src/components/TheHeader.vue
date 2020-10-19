@@ -118,11 +118,4 @@ export default {
   }
 };
 </script>
-<style scoped lang="postcss">
-.search-active {
-  @apply w-1/2 opacity-100;
-}
-.search-inactive {
-  @apply opacity-0 w-1/4;
-}
-</style>
+

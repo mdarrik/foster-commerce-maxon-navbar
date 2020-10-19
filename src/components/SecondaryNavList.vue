@@ -1,5 +1,9 @@
 <template>
-  <ul class="flex flex-1 justify-end gap-8">
+  <ul
+    ref="list"
+    class="flex flex-1 items-center justify-end gap-8"
+    @focusout="focusOut"
+  >
     <li>
       <button aria-label="Search">
         <svg
@@ -91,6 +95,16 @@ export default {
     return {
       languageDropdownOpen: false
     };
+  },
+  methods: {
+    focusOut(event) {
+      if (
+        this.languageDropdownOpen &&
+        !this.$refs.list.contains(event.relatedTarget)
+      ) {
+        this.languageDropdownOpen = false;
+      }
+    },
   }
 };
 </script>

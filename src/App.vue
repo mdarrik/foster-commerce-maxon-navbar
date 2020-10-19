@@ -1,6 +1,6 @@
 <template>
   <fragment>
-    <TheHeader />
+    <TheHeader class="mb-4" />
     <a href="#">
       This is a test link so closing the search doesn't go to the browser
       chrome.

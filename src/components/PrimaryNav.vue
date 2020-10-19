@@ -4,7 +4,7 @@
     class="flex flex-1 self-center justify-evenly"
     :class="{ 'child-open': isListOpen }"
     @focusout="focusOut"
-    @keydown.esc="closeDropdown"
+    @keydown.esc="escapeKeypress"
   >
     <li class="lg:hidden">
       <DropdownMenu
@@ -134,18 +134,21 @@ export default {
       //if a nav is open, and the list element doesn't contain the
       //target of the next focus, unset the openListIndex to close the open nav.
       if (this.isListOpen && !listRef.contains(event.relatedTarget)) {
-        this.openListIndex = null;
-        this.searchOpen = false;
+        this.closeAllDropdowns();
       }
     },
     /**closes all disclosure panels open. */
-    closeDropdown(event) {
-      if (this.isListOpen) {
-        event.stopPropagation();
-      }
+    closeAllDropdowns() {
       this.openListIndex = null;
       this.searchOpen = false;
       this.languageDropdownOpen = false;
+    },
+    escapeKeypress(event) {
+      //stop event from bubbling up. This way the parent menu doesn't get closed on mobile
+      if (this.isListOpen) {
+        event.stopPropagation();
+        this.closeAllDropdowns();
+      }
     }
   }
 };

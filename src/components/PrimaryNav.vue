@@ -79,10 +79,12 @@ export default {
        * If no dropdowns are open, assign to null
        */
       openListIndex: null,
+      /**if the search disclosure widget is open */
       searchOpen: false
     };
   },
   computed: {
+    /**returns a bool specifying if any of the disclosure items on the page are open */
     isListOpen() {
       return this.searchOpen || this.openListIndex !== null;
     }
@@ -108,6 +110,7 @@ export default {
         this.searchOpen = false;
       }
     },
+    /**closes all disclosure panels open. */
     closeDropdown(event) {
       if (this.isListOpen) {
         event.stopPropagation();

@@ -48,7 +48,7 @@
       </DropdownMenu>
     </li>
     <li>
-      <a href="#" aria-label="Your Account">
+      <a :href="accountUrl" aria-label="Your Account">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="19.612"
@@ -68,7 +68,7 @@
       </a>
     </li>
     <li>
-      <a href="#" aria-label="Our Store"
+      <a :href="storeUrl" aria-label="Our Store"
         ><svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 17.8 21.2"

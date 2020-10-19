@@ -49,6 +49,7 @@
         :open="listOpen"
         :subcategories="subcategories"
         :id="submenuId"
+        class="absolute top-0 left-full text-white"
         @keyup.esc.native="focusButton"
       />
     </slot>

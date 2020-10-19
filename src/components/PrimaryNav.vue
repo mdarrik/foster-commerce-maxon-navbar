@@ -35,7 +35,7 @@
     <li
       v-for="(category, index) in categories"
       :key="category.name"
-      class="relative"
+      class="lg:relative"
     >
       <DropdownMenu
         v-if="category.subcategories"

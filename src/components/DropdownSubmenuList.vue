@@ -1,6 +1,6 @@
 <template>
   <ul
-    class=" absolute left-0 bg-white text-black rounded-b-md shadow-md ease-in-out duration-100"
+    class="lg:absolute lg:left-0 bg-gray-700 w-full lg:bg-white lg:text-black rounded-b-md shadow-md ease-in-out duration-100"
     :class="listClasses"
     :aria-hidden="!open"
   >
@@ -26,7 +26,7 @@ export default {
   computed: {
     listClasses() {
       if (this.open) {
-        return "py-3 h-auto w-32 open";
+        return "lg:py-3 h-auto lg:w-32 open";
       } else {
         return " p-0 h-px w-px overflow-hidden closed";
       }
@@ -35,19 +35,21 @@ export default {
 };
 </script>
 <style scoped lang="postcss">
-ul {
-  left: theme("spacing.5");
-}
-ul.closed {
-  clip: rect(1px, 1px, 1px, 1px);
-  @apply transform translate-y-4;
-}
-ul.open {
-  clip: auto;
-  width: max-content;
-  @apply transform translate-y-4;
-}
-.open a {
-  min-width: 10rem;
+@screen lg {
+  ul {
+    left: theme("spacing.5");
+  }
+  ul.closed {
+    clip: rect(1px, 1px, 1px, 1px);
+    @apply transform translate-y-4;
+  }
+  ul.open {
+    clip: auto;
+    width: max-content;
+    @apply transform translate-y-4;
+  }
+  .open a {
+    min-width: 10rem;
+  }
 }
 </style>

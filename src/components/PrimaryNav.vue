@@ -15,7 +15,6 @@
       >
         <template v-slot:default> Search <SearchIconSvg /> </template>
         <template v-slot:disclosed-content="slotProps">
-          {{ slotProps }}
           <div
             :class="[
               'w-full bg-gray-700',

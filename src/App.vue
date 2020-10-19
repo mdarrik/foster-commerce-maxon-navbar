@@ -1,6 +1,9 @@
 <template>
   <fragment>
     <TheHeader />
+    <a href="#">
+      test
+    </a>
   </fragment>
 </template>
 

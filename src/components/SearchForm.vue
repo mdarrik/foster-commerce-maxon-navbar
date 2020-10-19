@@ -14,7 +14,7 @@
       id="desktop-nav-search-input"
       ref="searchInputRef"
       type="search"
-      class="w-full h-14 rounded-full px-10"
+      class="w-full h-14 rounded-full px-10 text-black"
       :class="{ hidden: !active }"
       aria-label="Search"
       placeholder="Search"

@@ -3,6 +3,7 @@
     ref="list"
     class="flex lg:flex-1 items-center justify-end gap-8"
     @focusout="focusOut"
+    @keydown.esc="languageDropdownOpen = false"
   >
     <li class="hidden lg:block">
       <button

@@ -2,9 +2,35 @@
   <ul
     ref="listRef"
     class="flex flex-1 self-center justify-evenly"
+    :class="{ 'child-open': isListOpen }"
     @focusout="focusOut"
-    @keydown.esc="openListIndex = null"
+    @keydown.esc="closeDropdown"
   >
+    <li class="lg:hidden">
+      <DropdownMenu
+        :list-open="searchOpen"
+        :hasChevron="false"
+        @button-click="() => (searchOpen = !searchOpen)"
+      >
+        <template v-slot:default> Search <SearchIconSvg /> </template>
+        <template v-slot:disclosed-content="slotProps">
+          {{ slotProps }}
+          <div
+            :class="[
+              'w-full bg-gray-700',
+              slotProps.open ? 'active bottom-auto' : null,
+              slotProps.openClass
+            ]"
+          >
+            <SearchForm
+              class="mx-0 relative"
+              :id="slotProps.Id"
+              :active="slotProps.open"
+            />
+          </div>
+        </template>
+      </DropdownMenu>
+    </li>
     <li
       v-for="(category, index) in categories"
       :key="category.name"
@@ -21,7 +47,7 @@
       <a
         v-else
         :href="category.url"
-        class="font-bold tracking-wide text-base uppercase h-12 flex items-center"
+        class="lg:font-bold tracking-wide text-base uppercase h-12 flex items-center"
       >
         <span class="mx-5">{{ category.name }}</span>
       </a>
@@ -30,9 +56,16 @@
 </template>
 <script>
 import DropdownMenu from "./DropdownMenu";
+import SearchIconSvg from "./SearchIconSvg";
+import SearchForm from "./SearchForm";
 /**The primary set of nav options for the site on large screens.
  * Also manages the state of any child dropdown elements. */
 export default {
+  components: {
+    DropdownMenu,
+    SearchIconSvg,
+    SearchForm
+  },
   props: {
     /**The array of categories that make up the nav items. if the category is a dropdown,
      * needs to have a subcategories property.
@@ -40,16 +73,19 @@ export default {
      */
     categories: Array
   },
-  components: {
-    DropdownMenu
-  },
   data() {
     return {
       /**A numerical index to keep track of which dropdown element is open
        * If no dropdowns are open, assign to null
        */
-      openListIndex: null
+      openListIndex: null,
+      searchOpen: false
     };
+  },
+  computed: {
+    isListOpen() {
+      return this.searchOpen || Boolean(this.openListIndex);
+    }
   },
   methods: {
     /**method that fires when a dropdown button is clicked.
@@ -67,10 +103,29 @@ export default {
       const listRef = this.$refs.listRef;
       //if a nav is open, and the list element doesn't contain the
       //target of the next focus, unset the openListIndex to close the open nav.
-      if (this.openListIndex && !listRef.contains(event.relatedTarget)) {
+      if (this.isListOpen && !listRef.contains(event.relatedTarget)) {
         this.openListIndex = null;
+        this.searchOpen = false;
       }
+    },
+    closeDropdown(event) {
+      if (this.isListOpen) {
+        event.stopPropagation();
+      }
+      this.openListIndex = null;
+      this.searchOpen = false;
     }
   }
 };
 </script>
+<style scoped lang="postcss">
+.child-open {
+  @apply transform -translate-x-full;
+}
+.child-open .active {
+  @apply w-full;
+}
+.left-full {
+  left: 100%;
+}
+</style>

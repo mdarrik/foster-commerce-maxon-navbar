@@ -1,0 +1,86 @@
+{
+    "primaryNavCategories": [
+        {
+            "name": "Products",
+            "subcategories": [
+                {
+                    "name": "Cinema 4D",
+                    "url": "#"
+                },
+                {
+                    "name": "Cinebench",
+                    "url": "#"
+                },
+                {
+                    "name": "Redshift",
+                    "url": "#"
+                },
+                {
+                    "name": "C40 + Redshift",
+                    "url": "#"
+                },
+                {
+                    "name": "Maxon One",
+                    "url": "#"
+                },
+                {
+                    "name": "Cineware",
+                    "url": "#"
+                }
+            ]
+        },
+        {
+            "name": "News",
+            "subcategories": [
+                {
+                    "name": "Newsroom",
+                    "url": "#"
+                },
+                {
+                    "name": "Events",
+                    "url": "#"
+                }
+            ]
+        },
+        {
+            "name": "Learn",
+            "subcategories": [
+                {
+                    " name": "Cineversity",
+                    "url": "#",
+                    "isExternal": true
+                },
+                {
+                    "name": "Educational Licensing",
+                    "url": "#"
+                },
+                {
+                    "name": "Certification",
+                    "url": "#"
+                },
+                {
+                    "name": "Training Partners",
+                    "url": "#"
+                }
+            ]
+        },
+        {
+            "name": "Try",
+            "url": "#"
+        },
+        {
+            "name": "Buy",
+            "url": "#"
+        }
+    ],
+    "languages": [
+        {
+            "name": "english",
+            "url": "~/en/"
+        },
+        {
+            "name": "de",
+            "url": "~/de/"
+        }
+    ]
+}

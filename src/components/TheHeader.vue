@@ -55,63 +55,11 @@ export default {
     SearchForm,
     HamburgerButton
   },
+  props: {
+    currentLang: { default: "en" }
+  },
   data() {
     return {
-      primaryNavCategories: [
-        {
-          name: "Products",
-          subcategories: [
-            { name: "Cinema 4D", url: "#" },
-            { name: "Cinebench", url: "#" },
-            { name: "Redshift", url: "#" },
-            { name: "C40 + Redshift", url: "#" },
-            { name: "Maxon One", url: "#" },
-            { name: "Cineware", url: "#" }
-          ]
-        },
-        {
-          name: "News",
-          subcategories: [
-            { name: "Newsroom", url: "#" },
-            { name: "Events", url: "#" }
-          ]
-        },
-        {
-          name: "Learn",
-          subcategories: [
-            {
-              name: "Cineversity",
-              url: "#",
-              isExternal: true
-            },
-            {
-              name: "Educational Licensing",
-              url: "#"
-            },
-            {
-              name: "Certification",
-              url: "#"
-            },
-            {
-              name: "Training Partners",
-              url: "#"
-            }
-          ]
-        },
-        { name: "Try", url: "#" },
-        { name: "Buy", url: "#" }
-      ],
-      lang: "en",
-      languages: [
-        {
-          name: "english",
-          url: "~/en/"
-        },
-        {
-          name: "de",
-          url: "~/de/"
-        }
-      ],
       searchActive: false,
       navActive: false
     };
@@ -129,6 +77,13 @@ export default {
     searchOpened() {
       this.searchActive = true;
     }
+  },
+  created() {
+    /**simulate fetching data from an api.
+     * It might be better to pass in as props depending on how the site is setup*/
+    let navData = require("../../NavData.json");
+    this.primaryNavCategories = navData.primaryNavCategories;
+    this.languages = "navData.languages";
   }
 };
 </script>

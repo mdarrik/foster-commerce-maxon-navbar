@@ -14,11 +14,16 @@
         :active="navActive"
         @click="navActive = !navActive"
       />
-      <TheHeaderLogo :lang="lang" class="lg:w-1/3" :inert="navActive" />
+      <TheHeaderLogo
+        :lang="currentLanguage"
+        class="lg:w-1/3"
+        :inert="navActive"
+      />
       <nav class="lg:contents uppercase">
         <span class="hidden" id="primary-nav-label">Primary Nav</span>
         <PrimaryNav
           :categories="primaryNavCategories"
+          :languages="languages"
           class="primary-nav hidden text-white lg:flex lg:w-1/3"
           :class="{ 'lg:hidden': searchActive }"
           aria-labelledby="primary-nav-label"
@@ -56,7 +61,7 @@ export default {
     HamburgerButton
   },
   props: {
-    currentLang: { default: "en" }
+    currentLanguage: { default: "en" }
   },
   data() {
     return {
@@ -83,7 +88,7 @@ export default {
      * It might be better to pass in as props depending on how the site is setup*/
     let navData = require("../../NavData.json");
     this.primaryNavCategories = navData.primaryNavCategories;
-    this.languages = "navData.languages";
+    this.languages = navData.languages;
   }
 };
 </script>

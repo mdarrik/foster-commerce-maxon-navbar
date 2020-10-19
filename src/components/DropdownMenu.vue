@@ -5,10 +5,10 @@
       type="button"
       class="font-bold tracking-wide text-base uppercase h-12 flex items-center justify-center px-5"
       :aria-expanded="listOpen ? 'true' : 'false'"
-      :aria-controls="`${category}-menu`"
+      :aria-controls="submenuId"
       @click="$emit('button-click')"
     >
-      {{ category }}
+      <slot></slot>
       <svg
         v-if="hasChevron"
         xmlns="http://www.w3.org/2000/svg"
@@ -25,13 +25,15 @@
     <DropdownSubmenu
       :open="listOpen"
       :subcategories="subcategories"
-      :id="`${category}-menu`"
+      :id="submenuId"
       @keyup.esc.native="focusButton"
     />
   </fragment>
 </template>
 <script>
 import DropdownSubmenu from "./DropdownSubmenu";
+//used to generate unique ids per each component instance
+let idNum = 0;
 /**
  * a dropdown/disclosure menu. Doesn't handle opening/closing the menu itself, instead emits a button-click event
  * and receives a listOpen prop. This allows a parent to orchestrate multiple dropdowns at a time.
@@ -41,7 +43,6 @@ export default {
     DropdownSubmenu
   },
   props: {
-    category: { type: String, required: true },
     subcategories: { type: Array, required: true },
     listOpen: {
       type: Boolean,
@@ -49,6 +50,15 @@ export default {
     },
     /**prop to determine whether the dropdown item should have a chevron when expanded */
     hasChevron: { type: Boolean, default: true }
+  },
+  data() {
+    return {
+      /** Calculate an id for the dropdown-menu. By incrementing idNum which persists outside of the component,
+       * it should be for each component instance.
+       * A more robust solution may be to use something like nanoid.
+       */
+      submenuId: Object.freeze(`dropdown-menu-${idNum++}`)
+    };
   },
   methods: {
     /**set focus on the button for this dropdown */

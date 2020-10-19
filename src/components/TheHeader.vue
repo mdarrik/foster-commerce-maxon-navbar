@@ -7,12 +7,7 @@
       class="bg-gray-900 text-white flex justify-between h-full lg:h-20 items-center px:4 lg:px-10 font-display relative"
       :class="{ 'nav-active': navActive }"
       :inert="searchActive"
-      @keydown.esc="
-        e => {
-          log(e);
-          navActive = false;
-        }
-      "
+      @keydown.esc="navActive = false"
     >
       <HamburgerButton
         class="lg:hidden h-12 px-3"
@@ -133,9 +128,6 @@ export default {
     },
     searchOpened() {
       this.searchActive = true;
-    },
-    log(...args) {
-      console.log(args);
     }
   }
 };

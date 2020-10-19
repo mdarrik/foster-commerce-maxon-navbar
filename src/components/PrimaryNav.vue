@@ -8,6 +8,7 @@
   >
     <li class="lg:hidden">
       <DropdownMenu
+        ref="primaryNavSearchButton"
         :list-open="searchOpen"
         :hasChevron="false"
         @button-click="() => (searchOpen = !searchOpen)"
@@ -26,6 +27,7 @@
               class="mx-0 relative"
               :id="slotProps.Id"
               :active="slotProps.open"
+              @keydown.esc="primaryNavSearchButton.focusButton()"
             />
           </div>
         </template>

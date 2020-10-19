@@ -10,7 +10,7 @@
       <TheHeaderLogo :lang="lang" class="w-1/3" />
       <nav class="contents uppercase">
         <span class="hidden" id="primary-nav-label">Primary Nav</span>
-        <TheDesktopPrimaryNav
+        <PrimaryNav
           :categories="primaryNavCategories"
           class="w-1/3"
           :class="{ hidden: searchActive }"
@@ -32,13 +32,13 @@
 
 <script>
 import TheHeaderLogo from "./TheHeaderLogo";
-import TheDesktopPrimaryNav from "./TheDesktopPrimaryNav";
+import PrimaryNav from "./PrimaryNav";
 import SecondaryNavList from "./SecondaryNavList";
 import SearchForm from "./SearchForm";
 export default {
   components: {
     TheHeaderLogo,
-    TheDesktopPrimaryNav,
+    PrimaryNav,
     SecondaryNavList,
     SearchForm
   },

@@ -6,7 +6,7 @@ module.exports = {
     defaultLineHeights: true,
     standardFontWeights: true
   },
-  purge: [],
+  purge: ["./public/**/*.html", "./src/**/*!(.stories).vue"],
   theme: {
     screens: {
       sm: "540px",

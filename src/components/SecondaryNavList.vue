@@ -5,7 +5,14 @@
     @focusout="focusOut"
   >
     <li>
-      <button aria-label="Search">
+      <button
+        ref="searchButton"
+        aria-label="Search"
+        class="h-12"
+        :aria-controls="searchInputId"
+        :aria-expanded="searchInputExpanded"
+        @click="$emit('search-clicked')"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 19.8 20.7"
@@ -105,6 +112,9 @@ export default {
         this.languageDropdownOpen = false;
       }
     },
+    focusSearchButton() {
+      this.$refs.searchButton.focus();
+    }
   }
 };
 </script>

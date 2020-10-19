@@ -5,7 +5,7 @@
     </a>
     <div
       class="bg-gray-900 text-white flex justify-between h-20 items-center px-10 font-display relative"
-      :inert="!searchActive"
+      :inert="searchActive"
     >
       <TheHeaderLogo :lang="lang" class="w-1/3" />
       <nav class="contents uppercase">

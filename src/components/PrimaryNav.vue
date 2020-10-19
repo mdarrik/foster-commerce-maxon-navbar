@@ -84,7 +84,7 @@ export default {
   },
   computed: {
     isListOpen() {
-      return this.searchOpen || Boolean(this.openListIndex);
+      return this.searchOpen || this.openListIndex !== null;
     }
   },
   methods: {

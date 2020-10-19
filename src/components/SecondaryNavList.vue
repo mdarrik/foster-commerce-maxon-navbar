@@ -1,10 +1,11 @@
 <template>
   <ul
     ref="list"
-    class="flex flex-1 items-center justify-end gap-8"
+    class="flex lg:flex-1 items-center justify-end gap-8"
     @focusout="focusOut"
+    @keydown.esc="languageDropdownOpen = false"
   >
-    <li>
+    <li class="hidden lg:block">
       <button
         ref="searchButton"
         aria-label="Search"
@@ -13,21 +14,10 @@
         :aria-expanded="searchInputExpanded"
         @click="$emit('search-clicked')"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 19.8 20.7"
-          focusable="false"
-          aria-hidden="true"
-          class="w-5 h-5 fill-current"
-        >
-          <path
-            aria-hidden="true"
-            d="M14 13.6l5.8 5.8-1.3 1.3-5.9-5.9c-1.3.9-2.9 1.4-4.5 1.4-4.5 0-8.1-3.6-8.1-8.1S3.6 0 8.1 0s8.1 3.6 8.1 8.1c0 2.1-.8 4.1-2.2 5.5zm-5.9.8c3.5 0 6.3-2.8 6.3-6.3s-2.8-6.3-6.3-6.3-6.3 2.8-6.3 6.3 2.8 6.3 6.3 6.3z"
-          ></path>
-        </svg>
+        <SearchIconSvg />
       </button>
     </li>
-    <li class="relative">
+    <li class="relative hidden lg:block">
       <DropdownMenu
         :subcategories="languages"
         :list-open="languageDropdownOpen"
@@ -47,7 +37,7 @@
         </svg>
       </DropdownMenu>
     </li>
-    <li>
+    <li class="hidden lg:block">
       <a :href="accountUrl" aria-label="Your Account">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -68,13 +58,15 @@
       </a>
     </li>
     <li>
-      <a :href="storeUrl" aria-label="Our Store"
+      <a
+        :href="storeUrl"
+        aria-label="Our Store"
+        class="flex justify-center items-center h-12 w-12"
         ><svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 17.8 21.2"
           role="img"
           aria-hidden="true"
-          aria-labelledby="icon-13"
           class="w-5 h-5 fill-current"
         >
           <path
@@ -87,7 +79,12 @@
 
 <script>
 import DropdownMenu from "./DropdownMenu";
+import SearchIconSvg from "./SearchIconSvg";
 export default {
+  components: {
+    DropdownMenu,
+    SearchIconSvg
+  },
   props: [
     "languages",
     "storeUrl",
@@ -95,9 +92,6 @@ export default {
     "searchInputId",
     "searchInputExpanded"
   ],
-  components: {
-    DropdownMenu
-  },
   data() {
     return {
       languageDropdownOpen: false

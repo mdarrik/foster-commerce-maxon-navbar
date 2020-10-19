@@ -2,7 +2,8 @@
   <fragment>
     <TheHeader />
     <a href="#">
-      test
+      This is a test link so closing the search doesn't go to the browser
+      chrome.
     </a>
   </fragment>
 </template>

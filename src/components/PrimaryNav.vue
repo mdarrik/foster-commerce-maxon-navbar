@@ -125,6 +125,11 @@ export default {
 .child-open .active {
   @apply w-full;
 }
+@screen lg {
+  .child-open {
+    @apply transform-none;
+  }
+}
 .left-full {
   left: 100%;
 }

@@ -1,6 +1,6 @@
 <template>
   <ul
-    class=" absolute left-0 bg-white text-black transform translate-y-4 rounded-b-md shadow-md ease-in-out duration-100"
+    class=" absolute left-0 bg-white text-black rounded-b-md shadow-md ease-in-out duration-100"
     :class="listClasses"
     :aria-hidden="!open"
   >
@@ -34,16 +34,18 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style scoped lang="postcss">
 ul {
   left: theme("spacing.5");
 }
 ul.closed {
   clip: rect(1px, 1px, 1px, 1px);
+  @apply transform translate-y-4;
 }
 ul.open {
   clip: auto;
   width: max-content;
+  @apply transform translate-y-4;
 }
 .open a {
   min-width: 10rem;

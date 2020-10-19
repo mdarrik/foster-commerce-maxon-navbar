@@ -28,7 +28,7 @@
           viewBox="0 0 8.5 14.1"
           focusable="false"
           aria-hidden="true"
-          class="w-5 h-5 fill-current"
+          class="w-5 h-5 fill-current lg:hidden"
         >
           <title class="hidden">Right Chevron</title>
           <path

@@ -9,7 +9,7 @@
       <button
         ref="searchButton"
         aria-label="Search"
-        class="h-12"
+        class="focus:outline-white flex items-center justify-center h-12 w-12"
         :aria-controls="searchInputId"
         :aria-expanded="searchInputExpanded"
         @click="$emit('search-clicked')"
@@ -38,7 +38,11 @@
       </DropdownMenu>
     </li>
     <li class="hidden lg:block">
-      <a :href="accountUrl" aria-label="Your Account">
+      <a
+        :href="accountUrl"
+        aria-label="Your Account"
+        class="focus:outline-white flex items-center justify-center w-12 h-12"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="19.612"
@@ -61,7 +65,7 @@
       <a
         :href="storeUrl"
         aria-label="Our Store"
-        class="flex justify-center items-center h-12 w-12"
+        class="focus:outline-white flex justify-center items-center h-12 w-12"
         ><svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 17.8 21.2"

@@ -48,7 +48,7 @@
       <a
         v-else
         :href="category.url"
-        class="lg:font-bold tracking-wide text-base uppercase h-12 flex items-center"
+        class="focus:outline-white lg:font-bold tracking-wide text-base uppercase h-12 flex items-center"
       >
         <span class="mx-5">{{ category.name }}</span>
       </a>

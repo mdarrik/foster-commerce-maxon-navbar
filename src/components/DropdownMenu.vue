@@ -3,7 +3,7 @@
     <button
       ref="buttonRef"
       type="button"
-      class="lg:font-bold tracking-wide text-base uppercase w-full lg:w-auto h-12 flex items-center justify-between lg:justify-center px-5"
+      class="focus:outline-white lg:font-bold tracking-wide text-base uppercase w-full lg:w-auto h-12 flex items-center justify-between lg:justify-center px-5"
       :aria-expanded="listOpen ? 'true' : 'false'"
       :aria-controls="submenuId"
       @click="$emit('button-click')"

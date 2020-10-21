@@ -53,6 +53,7 @@
         :id="submenuId"
         class="absolute top-0 lg:top-auto left-full text-white lg:text-black"
         @keyup.esc.native="focusButton"
+        @close-menu="$emit('close-menu')"
       />
     </slot>
   </fragment>

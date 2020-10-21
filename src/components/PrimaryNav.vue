@@ -43,6 +43,7 @@
         :subcategories="category.subcategories"
         :list-open="openListIndex === index"
         @button-click="dropdownButtonClicked(index)"
+        @close-menu="closeAllDropdowns"
         >{{ category.name }}</DropdownMenu
       >
       <a

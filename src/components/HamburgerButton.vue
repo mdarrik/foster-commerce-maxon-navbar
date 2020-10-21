@@ -2,7 +2,7 @@
   <button
     aria-label="Open Menu"
     :aria-expanded="active ? 'true' : 'false'"
-    class="bg-transparent w-10 h-12 px-3 transition-all ease-in-out duration-200 relative transform text-white .burger-button"
+    class="bg-transparent h-12 px-3 transition-all ease-in-out duration-200 relative transform text-white burger-button"
     :class="{ '-rotate-180': active }"
     @click="$emit('click')"
   >

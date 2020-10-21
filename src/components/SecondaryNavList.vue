@@ -1,7 +1,7 @@
 <template>
   <ul
     ref="list"
-    class="flex lg:flex-1 items-center justify-end gap-8"
+    class="flex lg:flex-1 items-center justify-end"
     @focusout="focusOut"
     @keydown.esc="languageDropdownOpen = false"
   >

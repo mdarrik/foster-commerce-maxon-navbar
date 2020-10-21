@@ -4,6 +4,27 @@
     :class="listClasses"
     :aria-hidden="!open"
   >
+    <li class="lg:hidden mr-0 bg-gray-900" aria-hidden="!open">
+      <button
+        class="tracking-wide font-normal px-5 py-3 flex items-center w-full"
+        @click="$emit('close-menu')"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 8.5 14.1"
+          role="img"
+          aria-hidden="true"
+          aria-labelledby="icon-39"
+          class="w-5 h-5 fill-current"
+        >
+          <title aria-hidden="true">Back</title>
+          <path
+            d="M7.1 14.1L0 7.1 7.1 0l1.4 1.4-5.7 5.7 5.7 5.7-1.4 1.3z"
+          ></path>
+        </svg>
+        <span class="px-4">Back</span>
+      </button>
+    </li>
     <li
       v-for="subcategory in subcategories"
       :key="subcategory.name"
@@ -12,7 +33,7 @@
     >
       <a
         :href="subcategory.url"
-        class="tracking-wide font-normal px-5 py-1 flex items-center"
+        class="tracking-wide font-normal px-5 lg:py-1 py-3 flex items-center"
         :tabindex="!open ? '-1' : null"
       >
         {{ subcategory.name }}

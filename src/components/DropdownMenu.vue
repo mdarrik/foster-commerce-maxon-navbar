@@ -10,19 +10,21 @@
     >
       <slot></slot>
       <template v-if="hasChevron">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 14.739 7.662"
-          aria-hidden="true"
-          focusable="false"
-          class="hidden lg:block w-2 h-2 fill-current absolute mx-auto mt-10 chevron transform transition ease-in-out duration-200 "
-        >
-          <title>Down Chevron</title>
-          <path
+        <div class="absolute flex items-center justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 14.739 7.662"
             aria-hidden="true"
-            d="M8.034 7.409a1 1 0 01-1.329 0L.335 1.747A1 1 0 011 0h12.74a1 1 0 01.664 1.747z"
-          ></path>
-        </svg>
+            focusable="false"
+            class="hidden lg:block w-2 h-2 fill-current mx-auto mt-10 chevron transform transition ease-in-out duration-200 "
+          >
+            <title>Down Chevron</title>
+            <path
+              aria-hidden="true"
+              d="M8.034 7.409a1 1 0 01-1.329 0L.335 1.747A1 1 0 011 0h12.74a1 1 0 01.664 1.747z"
+            ></path>
+          </svg>
+        </div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 8.5 14.1"

@@ -4,10 +4,12 @@
       Skip to Main Content
     </a>
     <div
+      ref="wrapperRef"
       class="bg-gray-900 text-white flex justify-between h-full lg:h-20 items-center px:4 lg:px-10 font-display relative"
       :class="{ 'nav-active': navActive }"
       :inert="searchActive"
       @keydown.esc="navActive = false"
+      @focusout="focusout"
     >
       <HamburgerButton
         class="lg:hidden h-12 px-3"
@@ -81,6 +83,14 @@ export default {
     },
     searchOpened() {
       this.searchActive = true;
+    },
+    focusout(event) {
+      if (
+        this.navActive &&
+        !this.$refs.wrapperRef.contains(event.relatedTarget)
+      ) {
+        this.navActive = false;
+      }
     }
   },
   created() {

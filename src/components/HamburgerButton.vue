@@ -1,8 +1,8 @@
 <template>
   <button
     aria-label="Open Menu"
-    :aria-expanded="active"
-    class="bg-transparent w-10 h-12 px-2 transition-all ease-in-out duration-200 relative transform text-white"
+    :aria-expanded="active ? 'true' : 'false'"
+    class="bg-transparent w-10 h-12 px-3 transition-all ease-in-out duration-200 relative transform text-white .burger-button"
     :class="{ '-rotate-180': active }"
     @click="$emit('click')"
   >
@@ -10,8 +10,7 @@
       ><span
         class="burger-bar burger-bar--1 transform transition-all duration-200"
         :class="{
-          'rotate-45 translate-y-0': active,
-          '-translate-y-2': !active
+          'rotate-45 translate-y-0': active
         }"
       ></span>
       <span
@@ -21,8 +20,7 @@
       <span
         class="burger-bar burger-bar--3 transform transition-all duration-200"
         :class="{
-          '-rotate-45 translate-y-0': active,
-          'translate-y-2': !active
+          '-rotate-45 translate-y-0': active
         }"
       ></span
     ></span>
@@ -39,9 +37,19 @@ export default {
 };
 </script>
 <style scoped lang="postcss">
+.burger-button {
+  width: 2.625rem;
+}
 .burger-bar {
-  @apply block absolute left-0 right-0 bg-opacity-100 bg-white h-2px w-auto;
+  @apply block absolute left-0 right-0 bg-opacity-100 bg-white w-auto;
+  height: 0.125rem;
   top: 50%;
+}
+[aria-expanded="false"] .burger-bar--1 {
+  --transform-translate-y: -0.45rem;
+}
+[aria-expanded="false"] .burger-bar--3 {
+  --transform-translate-y: 0.45rem;
 }
 .burger-bar--2 {
   transform-origin: 100% 50%;
